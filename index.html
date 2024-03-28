@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: bisque;
+            width: 450px;
+            margin: auto;
+            padding: auto;
+        }
+        input[type=text]{
+            width: 300px;
+            height: 30px;
+            border: none;
+            outline: none;
+            font-size: large;
+            color: black;
+        }
+        input[type=button]{
+            padding: 10px 35px;
+            border: none;
+            background-color: black;
+            color: white;
+            font-size: large;
+            border-radius: 10px;
+        }
+        input[type=button]:hover{
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <center>
+    <h1>CALCULATOR APP</h1>
+    <div class="container">
+
+        <table width="400" height="300" id="calc">
+            <tr>
+                <td colspan="3"><input type="text" id="result"></td>
+                <td><input type="button" value="C" onclick="clears()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onkeydown="myCal(event)" value="1" onclick="display('1')"></td>
+                <td><input type="button" onkeydown="myCal(event)" value="2" onclick="display('2')"></td>
+                <td><input type="button" onkeydown="myCal(event)" value="3" onclick="display('3')"></td>
+                <td><input type="button" onkeydown="myCal(event)" value="4" onclick="display('4')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onkeydown="myCal(event)" value="5" onclick="display('5')"></td>
+                <td><input type="button" onkeydown="myCal(event)" value="6" onclick="display('6')"></td>
+                <td><input type="button" onkeydown="myCal(event)" value="7" onclick="display('7')"></td>
+                <td><input type="button" onkeydown="myCal(event)" value="8" onclick="display('8')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onkeydown="myCal(event)" value="9" onclick="display('9')"></td>
+                <td><input type="button" onkeydown="myCal(event)" value="0" onclick="display('0')"></td>
+                <td><input type="button" onkeydown="myCal(event)" value="." onclick="display('.')"></td>
+                <td><input type="button" onkeydown="myCal(event)" value="+" onclick="display('+')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onkeydown="myCal(event)" value="-" onclick="display('-')"></td>
+                <td><input type="button" onkeydown="myCal(event)" value="*" onclick="display('*')"></td>
+                <td><input type="button" onkeydown="myCal(event)" value="/" onclick="display('/')"></td>
+                <td><input type="button" onkeydown="myCal(event)" value="=" onclick="calculate()"></td>
+            </tr>
+        </table>
+
+
+    </div>
+</center>
+
+
+<script src="script.js"></script>
+    
+</body>
+</html>

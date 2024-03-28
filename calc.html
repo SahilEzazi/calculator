@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=button]{
+            padding: 10px 30px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <center>
+        <h1>simple calculator</h1>
+        <input type="text" id="result" readonly>
+
+        <div>
+            <input type="button" value="1" id="btn1">
+            <input type="button" value="2" id="btn2">
+            <input type="button" value="3" id="btn3">
+            <input type="button" value="4" id="btn4">
+        </div>
+
+        <div>
+            <input type="button" value="5" id="btn5">
+            <input type="button" value="6" id="btn6">
+            <input type="button" value="7" id="btn7">
+            <input type="button" value="8" id="btn8">
+        </div>
+
+        <div>
+            <input type="button" value="9" id="btn9">
+            <input type="button" value="0" id="btn0">
+            <input type="button" value="." id="btnDot">
+            <input type="button" value="+" id="btnAdd">
+        </div>
+
+        <div>
+            <input type="button" value="-" id="btnSubtract">
+            <input type="button" value="*" id="btnMultiply">
+            <input type="button" value="/" id="btnDivide">
+            <input type="button" value="=" id="btnEqual">
+        </div>
+        <input type="button" value="C" id="clearAll">
+    </center>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const resultField = document.getElementById("result");
+            let currentInput = "";
+
+            function updateResult(){
+                resultField.value = currentInput;
+            }
+            function clearInput(){
+                currentInput="";
+                updateResult();
+            }
+            
+
+            for(let i=0; i<=9; i++){
+                let a =document.getElementById(`btn${i}`);
+                a.addEventListener("click",function(){
+                    currentInput += i;
+                    updateResult();
+                })
+            }
+
+            let b = document.getElementById("btnDot");
+            b.addEventListener("click",function(){
+                currentInput += ".";
+                updateResult();
+            })
+
+            document.getElementById("btnAdd").addEventListener("click",function(){
+                currentInput += "+";
+                updateResult();
+            })
+
+            document.getElementById("btnSubtract").addEventListener("click",function(){
+                currentInput += "-";
+                updateResult();
+            })
+
+            document.getElementById("btnMultiply").addEventListener("click",function(){
+                currentInput += "*";
+                updateResult();
+            })
+
+            document.getElementById("btnDivide").addEventListener("click",function(){
+                currentInput += "/";
+                updateResult();
+            })
+
+            function calculate(){
+                try{
+                    currentInput = eval(currentInput).toString();
+                    updateResult();
+                }
+                catch(error){
+                    resultField.value = "error"
+                }
+            }
+
+            document.getElementById("btnEqual").addEventListener("click",calculate);
+
+            document.getElementById("clearAll").addEventListener("click",clearInput);
+
+
+
+
+
+        })
+
+
+
+    </script>
+    
+</body>
+</html>
